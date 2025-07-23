@@ -1,0 +1,365 @@
+body {
+  margin: 0;
+  background-color: #2e2d2d;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+}
+
+#scene-container {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: relative;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1001;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.sidebar-open #sidebar {
+  left: 0;
+}
+
+#sidebar h2 {
+  margin-top: 0;
+  color: #ff3c3c;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#sidebar ul li {
+  margin-bottom: 10px;
+}
+
+#sidebar ul li > strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: #ff3c3c;
+}
+
+
+#sidebar ul li ul {
+  margin-left: 10px;
+  margin-top: 4px;
+}
+
+#sidebar ul li ul li {
+  margin-bottom: 6px;
+}
+
+#sidebar ul a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+#sidebar ul a:hover {
+  color: #ff3c3c;
+}
+
+
+#sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #ff3c3c;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1002;
+  transition: left 0.3s ease, background-color 0.2s ease;
+}
+
+#sidebar-toggle:hover {
+  background-color: #e33232;
+}
+
+.sidebar-open #sidebar-toggle {
+  left: 270px;
+}
+
+.sidebar-footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #888;
+}
+
+.sidebar-footer ul {
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+.sidebar-footer ul li {
+  margin-bottom: 8px;
+}
+
+.sidebar-footer a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.sidebar-footer a:hover {
+  color: #ff3c3c;
+}
+
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.progress-label {
+  margin-top: 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.inbody-section {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(102, 255, 0, 0.495);
+}
+
+.inbody-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #ff4444;
+}
+
+.inbody-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.inbody-section input,
+.inbody-section select,
+.inbody-section button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.inbody-section button {
+  background-color: #ff4444;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inbody-section button:hover {
+  background-color: #cc0000;
+}
+
+.results {
+  margin-top: 25px;
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 10px;
+}
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+#inbody-results {
+  display: none;
+  max-width: 700px;
+  margin: 2rem auto;
+  background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+  color: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  border: 1px solid #444;
+  transition: all 0.4s ease-in-out;
+  transform: scale(0.95);
+}
+
+#inbody-results:hover {
+  transform: scale(1);
+}
+
+#inbody-results h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+#inbody-results ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+#inbody-results li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #444;
+}
+#inbody-results {
+  display: none;
+  max-width: 700px;
+  margin: 2rem auto;
+  background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+  color: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #444;
+  transition: all 0.4s ease-in-out;
+  transform: scale(0.95);
+}
+
+#inbody-results h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+}
+
+#inbody-results ul {
+  list-style: none;
+  padding: 0;
+}
+
+#inbody-results li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #444;
+}
+#supplements-toggle {
+  position: fixed;
+  top: 90px;
+  left: 10px;
+  z-index: 9999;
+}
+
+#supplements-toggle button {
+  background-color: #f4444f;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+#supplements-sidebar {
+  position: fixed;
+  top: 90px;
+  left: -220px;
+  width: 200px;
+  height: auto;
+  background: #1e1e1e;
+  color: white;
+  padding: 15px;
+  z-index: 9998;
+  transition: left 0.3s ease;
+  border-radius: 0 8px 8px 0;
+}
+
+#supplements-sidebar.open {
+  left: 60px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+}
+
+header {
+  background: #1e1e1e;
+  padding: 20px;
+  text-align: center;
+}
+
+header a {
+  color: #ff4081;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.shop-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #ff4081;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}

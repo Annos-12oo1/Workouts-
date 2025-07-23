@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InBody Results</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="inbody-section">
+        <h2>Your Body Composition Analysis</h2>
+        <div class="results-container">
+            <div class="result-card">
+                <h3>Ideal Weight</h3>
+                <div class="result-value" id="result-weight">0 kg</div>
+            </div>
+            <div class="result-card">
+                <h3>Muscle Mass</h3>
+                <div class="result-value" id="result-muscle">0 kg</div>
+            </div>
+            <div class="result-card">
+                <h3>Fat Percentage</h3>
+                <div class="result-value" id="result-fat">0%</div>
+            </div>
+            <div class="result-card">
+                <h3>Metabolism (BMR)</h3>
+                <div class="result-value" id="result-bmr">0 kcal</div>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button id="saveResults" class="primary-btn">Save Results</button>
+            <button id="backButton" class="secondary-btn">Back to Input</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('result-weight').textContent = `${params.get('weight') || '0'} kg`;
+            document.getElementById('result-fat').textContent = `${params.get('fat') || '0'}%`;
+            document.getElementById('result-muscle').textContent = `${params.get('muscle') || '0'} kg`;
+            document.getElementById('result-bmr').textContent = `${params.get('bmr') || '0'} kcal`;
+            
+            document.getElementById('backButton').addEventListener('click', () => {
+                history.back();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkOuts++</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>WorkOuts++</title>
+  <style>
+    #schedule-sidebar {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100vh;
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      transition: right 0.3s ease;
+      z-index: 1001;
+      box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+    }
+
+     body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    overflow: auto;
+  }
+  canvas {
+    display: block;
+  }
+    .schedule-open #schedule-sidebar {
+      right: 0;
+    }
+
+    #schedule-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff3c3c;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      font-size: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1002;
+    }
+
+    #schedule-sidebar h2 {
+      color: #ff3c3c;
+      margin-top: 0;
+    }
+
+    .day {
+      margin-top: 20px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    .day input[type="text"] {
+      width: 100%;
+      margin-top: 8px;
+      padding: 6px;
+      background-color: #2e2d2d;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .drill-input {
+      margin-top: 8px;
+    }
+
+    .day button {
+      margin-top: 8px;
+      padding: 6px 10px;
+      background-color: #ff3c3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .day button:hover {
+      background-color: #e13232;
+    }
+
+    .drill-list {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .drill-list li {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+  </style>
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkOuts++ Shop</title>
+  <link rel="stylesheet" href="shop.css" />
+</head>
+
+  </style>
+</script>
+
+ 
+  <button id="sidebar-toggle" aria-label="Toggle Muscle Sidebar">☰</button>
+  <button id="schedule-toggle" aria-label="Toggle Schedule Sidebar">🗓️</button>
+
+  <aside id="sidebar">
+    <h2>💪 Muscle Groups</h2>
+    <ul>
+      <li><strong>Chest</strong>
+        <ul>
+          <li><a href="pages/upper-chest.html">Upper Chest</a></li>
+          <li><a href="pages/middle-chest.html">Middle Chest</a></li>
+          <li><a href="pages/lower-chest.html">Lower Chest</a></li>
+        </ul>
+      </li>
+      <li><strong>Biceps</strong>
+        <ul>
+          <li><a href="pages/short-head.html">Short Head</a></li>
+          <li><a href="pages/long-head.html">Long Head</a></li>
+        </ul>
+      </li>
+      <li><strong>Triceps</strong>
+        <ul>
+          <li><a href="pages/long-head-triceps.html">Long Head</a></li>
+          <li><a href="pages/lateral-head.html">Lateral Head</a></li>
+          <li><a href="pages/medial-head.html">Medial Head</a></li>
+        </ul>
+      </li>
+      <li><strong>Back</strong>
+        <ul>
+          <li><a href="pages/lats.html">Lats</a></li>
+          <li><a href="pages/traps.html">Trapezius</a></li>
+          <li><a href="pages/rhomboids.html">Rhomboids</a></li>
+        </ul>
+      </li>
+      <li><strong>Shoulders</strong>
+        <ul>
+          <li><a href="pages/front-delt.html">Front Deltoid</a></li>
+          <li><a href="pages/lateral-delt.html">Lateral Deltoid</a></li>
+          <li><a href="pages/rear-delt.html">Rear Deltoid</a></li>
+        </ul>
+      </li>
+      <li><strong>Legs</strong>
+        <ul>
+          <li><a href="pages/quads.html">Quads</a></li>
+          <li><a href="pages/hamstrings.html">Hamstrings</a></li>
+          <li><a href="pages/calves.html">Calves</a></li>
+        </ul>
+      </li>
+      <li><strong>Core</strong>
+        <ul>
+          <li><a href="pages/upper-abs.html">Upper Abs</a></li>
+          <li><a href="pages/lower-abs.html">Lower Abs</a></li>
+          <li><a href="pages/obliques.html">Obliques</a></li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+
+</section>
+<section id="supplement-shop" class="homepage-shop">
+  <div class="shop-header">
+    <h2>Performance <span class="red-text">Supplements</span></h2>
+    <div class="cart-indicator">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count">0</span>
+    </div>
+  </div>
+
+  <div class="products-grid">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="product-badge">BESTSELLER</div>
+      <img src="https://i.pinimg.com/736x/b5/c5/91/b5c591f7246c5cb86e7b7ff825aa7e2d.jpg" alt="Nitrotech Whey Protein">
+      <h3>Nitrotech Whey Protein</h3>
+      <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span>(247)</span>
+      </div>
+      <div class="product-price">
+        <span class="current-price">$49.99</span>
+        <span class="old-price">$59.99</span>
+      </div>
+      <div class="product-actions">
+        <button class="btn btn-red add-to-cart" data-id="1">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="product-badge">NEW</div>
+      <img src="https://cellucor.com/cdn/shop/files/C4_Original_Hero-Volt-v3.png?v=1713881370&width=1946" alt="C4 Extreme Pre-Workout">
+      <h3>C4 Extreme Pre-Workout</h3>
+      <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span>(189)</span>
+      </div>
+      <div class="product-price">
+        <span class="current-price">$39.99</span>
+      </div>
+      <div class="product-actions">
+        <button class="btn btn-red add-to-cart" data-id="2">ADD TO CART</button>
+      </div>
+    </div>
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="product-badge">Free Shipping</div>
+      <img src="https://hips.hearstapps.com/hmg-prod/images/best-creatine-supplement-657b029791f0b.jpg?crop=0.6692708333333334xw:1xh;center,top&resize=1200:*" alt="Creatine Monohydrate">
+      <h3>Creatine Monohydrate</h3>
+      <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span>(199)</span>
+      </div>
+      <div class="product-price">
+        <span class="current-price">$28.99</span>
+      </div>
+      <div class="product-actions">
+        <button class="btn btn-red add-to-cart" data-id="3">ADD TO CART</button>
+      </div>
+    </div>
+    
+<!-- Product 4 -->
+    <div class="product-card">
+      <div class="product-badge">BESTSELLER</div>
+      <img src="https://media.post.rvohealth.io/wp-content/uploads/sites/3/2021/10/1324339-MARKET-UPDATE-MR-What-are-some-of-the-best-omega-3-supplements-732x549-Feature.jpg" alt="Omega-3 collection">
+      <h3>Omega-3 collection</h3>
+      <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span>(11)</span>
+      </div>
+      <div class="product-price">
+        <span class="current-price">$85.99</span>
+        <span class="old-price">$100</span>
+      </div>
+      <div class="product-actions">
+        <button class="btn btn-red add-to-cart" data-id="7">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card">
+      <div class="product-badge">Highly Recommended</div>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/349856920/PN/LW/LK/187612007/12-0-500x500.jpg" alt="BCAAs">
+      <h3>BCAAs</h3>
+      <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span>(20)</span>
+      </div>
+      <div class="product-price">
+        <span class="current-price">$49.99</span>
+        <span class="old-price">$64.99</span>
+      </div>
+      <div class="product-actions">
+        <button class="btn btn-red add-to-cart" data-id="5">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card">
+      <div class="product-badge">FOLLOW PRECAUTIONS</div>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/440940120/XE/EO/JH/137977681/steroids-and-hormones.jpg" alt="Steroid">
+      <h3>Steroids</h3>
+      <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span>(999)</span>
+      </div>
+      <div class="product-price">
+        <span class="current-price">$149.99</span>
+        <span class="old-price">$150</span>
+      </div>
+      <div class="product-actions">
+        <button class="btn btn-red add-to-cart" data-id="6">ADD TO CART</button>
+      </div>
+    </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .checkout-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 2rem;
+    }
+
+    .checkout-form {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .checkout-form h2 {
+      color: #ff3c3c;
+      margin-top: 0;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background: #2a2a2a;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .payment-methods {
+      margin: 1.5rem 0;
+    }
+
+    .payment-method {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: #2a2a2a;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .payment-method:hover {
+      background: #333;
+    }
+
+    .payment-method input {
+      margin-right: 1rem;
+    }
+
+    .credit-card-form {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #2a2a2a;
+      border-radius: 6px;
+    }
+
+    .btn-place-order {
+      width: 100%;
+      padding: 1rem;
+      background: #ff3c3c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-place-order:hover {
+      background: #e13232;
+    }
+
+    .order-summary {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 12px;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .order-summary h2 {
+      color: #ff3c3c;
+      margin-top: 0;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+    }
+
+    .order-items {
+      max-height: 300px;
+      overflow-y: auto;
+      margin: 1rem 0;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .order-totals {
+      margin-top: 1.5rem;
+    }
+
+    .order-total-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .order-total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+    <div class="checkout-form">
+      <h2>Shipping Information</h2>
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Street Address</label>
+          <input type="text" id="address" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" required>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" required>
+            <option value="">Select Country</option>
+            <option value="US">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="CA">Canada</option>
+           
+          </select>
+        </div>
+
+        <h2>Payment Method</h2>
+        
+        <div class="payment-methods">
+          <div class="payment-method">
+            <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+            <label for="creditCard">Credit Card</label>
+          </div>
+
+          <div class="payment-method">
+            <input type="radio" id="paypal" name="paymentMethod" value="paypal">
+            <label for="paypal">PayPal</label>
+          </div>
+
+          <div class="payment-method">
+            <input type="radio" id="crypto" name="paymentMethod" value="crypto">
+            <label for="crypto">Cryptocurrency</label>
+          </div>
+        </div>
+
+        <div class="credit-card-form" id="creditCardForm">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expiry">Expiry Date</label>
+              <input type="text" id="expiry" placeholder="MM/YY" required>
+            </div>
+
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123" required>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-place-order">PLACE ORDER</button>
+      </form>
+    </div>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="order-items" id="orderItems">
+  
+      </div>
+
+      <div class="order-totals">
+        <div class="order-total-row">
+          <span>Subtotal:</span>
+          <span id="subtotal">$0.00</span>
+        </div>
+        <div class="order-total-row">
+          <span>Shipping:</span>
+          <span>FREE</span>
+        </div>
+        <div class="order-total-row order-total">
+          <span>Total:</span>
+          <span id="total">$0.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+   
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const orderItems = document.getElementById('orderItems');
+      const subtotalEl = document.getElementById('subtotal');
+      const totalEl = document.getElementById('total');
+      
+      let subtotal = 0;
+      
+   
+      if (cart.length === 0) {
+        orderItems.innerHTML = '<p>Your cart is empty</p>';
+      } else {
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          subtotal += itemTotal;
+          
+          const itemEl = document.createElement('div');
+          itemEl.className = 'order-item';
+          itemEl.innerHTML = `
+            <span>${item.name} × ${item.quantity}</span>
+            <span>$${itemTotal.toFixed(2)}</span>
+          `;
+          orderItems.appendChild(itemEl);
+        });
+      }
+      
+      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      totalEl.textContent = `$${subtotal.toFixed(2)}`;
+      
+     
+      document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+          document.getElementById('creditCardForm').style.display = 
+            this.value === 'creditCard' ? 'block' : 'none';
+        });
+      });
+      
+    
+      document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+      
+        alert('Order placed successfully! Thank you for your purchase.');
+        
+      
+        localStorage.removeItem('cart');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>
+ 
+  <div id="mini-cart" class="mini-cart">
+    <h3>Your Cart (<span class="cart-count">0</span>)</h3>
+    <div class="cart-items">
+   
+    </div>
+  </div>
+</section>
+
+<style>
+
+  .homepage-shop {
+    padding: 40px 20px;
+    background: #1a1a1a;
+    margin: 40px 0;
+    border-radius: 12px;
+  }
+
+  .shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .cart-indicator {
+    background: #2a2a2a;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .cart-indicator:hover {
+    background: #333;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+  }
+
+  .product-card {
+    background: #2a2a2a;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff3c3c;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .product-rating {
+    color: #ffcc00;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .product-price {
+    margin: 15px 0;
+  }
+
+  .current-price {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #ff3c3c;
+  }
+
+  .old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 8px;
+    font-size: 1rem;
+  }
+
+  .product-actions {
+    margin-top: 15px;
+  }
+
+  .mini-cart {
+    position: fixed;
+    bottom: -300px;
+    right: 20px;
+    width: 300px;
+    background: #1e1e1e;
+    border-radius: 10px 10px 0 0;
+    padding: 15px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    transition: bottom 0.3s;
+    z-index: 1000;
+  }
+
+  .mini-cart.active {
+    bottom: 0;
+  }
+
+  .cart-items {
+    max-height: 200px;
+    overflow-y: auto;
+    margin: 15px 0;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .mini-cart {
+      width: calc(100% - 40px);
+      right: 20px;
+      left: 20px;
+    }
+  }
+</style>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const miniCart = document.getElementById('mini-cart');
+
+  function updateCart() {
+    const cartCountElements = document.querySelectorAll('.cart-count');
+    const cartItemsElement = document.querySelector('.cart-items');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    
+ 
+    cartCountElements.forEach(el => {
+      el.textContent = totalItems;
+    });
+    
+    cartItemsElement.innerHTML = '';
+    if (cart.length === 0) {
+      cartItemsElement.innerHTML = '<p>Your cart is empty</p>';
+      miniCart.classList.remove('active');
+      return;
+    }
+    
+    miniCart.classList.add('active');
+    
+    cart.forEach(item => {
+      const cartItem = document.createElement('div');
+      cartItem.className = 'cart-item';
+      cartItem.innerHTML = `
+        <span>${item.name} × ${item.quantity}</span>
+        <span>$${(item.price * item.quantity).toFixed(2)}</span>
+      `;
+      cartItemsElement.appendChild(cartItem);
+    });
+  }
+
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+      const productId = this.getAttribute('data-id');
+      const productCard = this.closest('.product-card');
+      const productName = productCard.querySelector('h3').textContent;
+      const productPrice = parseFloat(
+        productCard.querySelector('.current-price').textContent.replace('$', '')
+      );
+      
+      const existingItem = cart.find(item => item.id === productId);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id: productId,
+          name: productName,
+          price: productPrice,
+          quantity: 1
+        });
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCart();
+      
+      showNotification(`${productName} added to cart!`);
+    });
+  });
+
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'cart-notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+      notification.classList.remove('show');
+      setTimeout(() => {
+        notification.remove();
+      }, 300);
+    }, 2000);
+  }
+
+  document.querySelector('.cart-indicator').addEventListener('click', function() {
+    miniCart.classList.toggle('active');
+  });
+
+  updateCart();
+</script>
+  <aside id="schedule-sidebar">
+    <h2>📅 Training Schedule</h2>
+    <button onclick="addDay()">➕ Add Day</button>
+    <button onclick="downloadSchedulePDF()">📄 Download PDF</button>
+    <div id="days-container"></div>
+  </aside>
+
+  <div id="scene-container"></div>
+
+  <div id="tooltip"></div>
+
+  <div id="drill-panel"></div>
+
+  <audio id="bg-music" src="assets/audio/theme.mp3" autoplay loop></audio>
+
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("sidebar-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("sidebar-open");
+    });
+
+    document.getElementById("schedule-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("schedule-open");
+    });
+  });
+
+  function addDay() {
+    const container = document.getElementById("days-container");
+
+    const dayDiv = document.createElement("div");
+    dayDiv.className = "day";
+
+    const dayInput = document.createElement("input");
+    dayInput.type = "text";
+    dayInput.placeholder = "Day Name (e.g. Chest Day)";
+
+    const drillInput = document.createElement("input");
+    drillInput.type = "text";
+    drillInput.placeholder = "Drill (e.g. Incline Press)";
+    drillInput.className = "drill-input";
+
+    const drillList = document.createElement("ul");
+    drillList.className = "drill-list";
+
+    const addDrillBtn = document.createElement("button");
+    addDrillBtn.textContent = "Add Drill";
+    addDrillBtn.onclick = () => {
+      if (drillInput.value.trim()) {
+        const li = document.createElement("li");
+        li.textContent = drillInput.value;
+        drillList.appendChild(li);
+        drillInput.value = "";
+      }
+    };
+
+    dayDiv.appendChild(dayInput);
+    dayDiv.appendChild(drillInput);
+    dayDiv.appendChild(addDrillBtn);
+    dayDiv.appendChild(drillList);
+
+    container.appendChild(dayDiv);
+  }
+
+  function downloadSchedulePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: "a4"
+    });
+
+    const margin = { top: 20, bottom: 20, left: 20, right: 20 };
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const lineHeight = 10;
+    let y = margin.top;
+    let page = 1;
+
+    const centerText = (text, yPos, size = 12, font = "normal") => {
+      doc.setFont("helvetica", font);
+      doc.setFontSize(size);
+      const textWidth = doc.getTextWidth(text);
+      doc.text(text, (pageWidth - textWidth) / 2, yPos);
+    };
+
+    const drawBorder = () => {
+      doc.setDrawColor(100, 100, 100);
+      doc.setLineWidth(1.5);
+      doc.rect(10, 10, pageWidth - 20, 277);
+    };
+
+    const addFooter = () => {
+      doc.setFontSize(10);
+      doc.setTextColor(120);
+      const footerText = `WorkOuts++ – Page ${page}`;
+      const textWidth = doc.getTextWidth(footerText);
+      doc.text(footerText, (pageWidth - textWidth) / 2, 290);
+    };
+
+    const days = document.querySelectorAll(".day");
+    drawBorder();
+
+    if (days.length === 0) {
+      centerText("Training Schedule", y, 16, "bold");
+      y += 15;
+      centerText("No workout days added.", y);
+      addFooter();
+      doc.save("Training_Schedule.pdf");
+      return;
+    }
+
+    centerText("Training Schedule", y, 16, "bold");
+    y += 15;
+
+    days.forEach((day, index) => {
+      const dayName = day.querySelector("input[type='text']").value.trim();
+      if (!dayName) return;
+
+      if (y + lineHeight * 2 > 277) {
+        addFooter();
+        doc.addPage();
+        page++;
+        y = margin.top;
+        drawBorder();
+      }
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(13);
+      doc.setTextColor(200, 40, 40);
+      const title = `${index + 1}. ${dayName}`;
+      const titleWidth = doc.getTextWidth(title);
+      doc.text(title, (pageWidth - titleWidth) / 2, y);
+      y += lineHeight;
+
+      const drills = day.querySelectorAll(".drill-list li");
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      doc.setTextColor(30);
+
+      if (drills.length === 0) {
+        centerText("- No drills added.", y);
+        y += lineHeight;
+      }
+
+      drills.forEach(drill => {
+        if (y + lineHeight > 277) {
+          addFooter();
+          doc.addPage();
+          page++;
+          y = margin.top;
+          drawBorder();
+        }
+        const drillText = `• ${drill.textContent}`;
+        const drillWidth = doc.getTextWidth(drillText);
+        doc.text(drillText, (pageWidth - drillWidth) / 2, y);
+        y += lineHeight - 2;
+      });
+
+      y += 6;
+    });
+
+    addFooter();
+    doc.save("Training_Schedule.pdf");
+  }
+</script>
+  </style>
+
+  <div id="supplements-toggle">
+    <button onclick="toggleSupplements()">💊</button>
+  </div>
+
+  <div id="supplements-sidebar">
+  <h3>Supplements</h3>
+  <ul>
+    <li><a href="pages/proteins.html">proteins</a></li>
+    <li><a href="pages/creatine.html">creatine</a></li>
+    <li><a href="pages/Omega3.html">Omega3</a></li>
+  </ul>
+</div>
+
+  <script>
+    function toggleSupplements() {
+      const sidebar = document.getElementById("supplements-sidebar");
+      sidebar.classList.toggle("open");
+    }
+  </script>
+<div class="container">
